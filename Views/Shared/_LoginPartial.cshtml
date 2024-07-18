@@ -1,0 +1,11 @@
+﻿
+@using dotSocialNetwork.Models
+
+<div class="righ-align">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form method="post" asp-controller="Users" asp-action="Logout">
+            <input class="enter_submit" type="submit" value="Выход" />
+        </form>
+    }
+</div>
