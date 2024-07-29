@@ -1,14 +1,13 @@
-﻿
-@model dotSocialNetwork.Models.ViewModels.ChatViewModel;
+﻿@model dotSocialNetwork.Models.ViewModels.ChatViewModel;
 
-<meta http-equiv="refresh" content="5">
+@*<meta http-equiv="refresh" content="5">*@
 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"></script>
 
 <div class="block-reg background-white">
     <div>
-        <form method="get" asp-controller="Users" asp-action="MyPage">
+        <form method="get" asp-controller="Users" asp-action="MyPage" >
             <input class="enter_submit" type="submit" value="Назад" />
         </form>
     </div>
@@ -23,9 +22,9 @@
 
             @foreach (var message in @Model.History)
             {
-                <div>
-                    <label> @message.SenderId:</label>
-                    @message.Text
+                <div class="@(message.SenderName == @Model.User.FirstName ? "message-right" : "message-left")">
+                        <label class="message-sender">@message.SenderName:</label>
+                        <span class="message-text">@message.Text</span>
                 </div>
             }
         }
@@ -55,3 +54,34 @@
         </form>
     </div>
 </div>
+
+<style>
+    .message-right, .message-left {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        word-break: break-all;
+    }
+
+    .message-right {
+        text-align: right;
+        background-color: #e0f2f7; /* Голубой цвет для сообщений текущего пользователя */
+    }
+
+    .message-left {
+        text-align: left;
+        background-color: #f5f5f5; /* Серый цвет для сообщений собеседника */
+    }
+
+    .message-sender {
+        font-weight: bold; /* Жирный шрифт для имени отправителя */
+    }
+
+    .message-text {
+        margin-top: 5px;
+    }
+
+</style>

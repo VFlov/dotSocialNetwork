@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\base-styles.css"
     },
     {
+      "Id": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\wwwroot\\css\\chat-styles.css",
+      "PackagePath": "staticwebassets\\css\\chat-styles.css"
+    },
+    {
       "Id": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\wwwroot\\css\\main-page.css",
       "PackagePath": "staticwebassets\\css\\main-page.css"
     },
@@ -19,6 +23,10 @@
     {
       "Id": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\wwwroot\\favicon23.ico",
+      "PackagePath": "staticwebassets\\favicon23.ico"
     },
     {
       "Id": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\wwwroot\\js\\site.js",

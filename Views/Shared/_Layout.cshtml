@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using dotSocialNetwork.Models
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -15,14 +18,14 @@
     <header class="border-bottom header background-white">
         <div class="container">
             <div class="topnav">
-                @if (!User.Identity.IsAuthenticated)
+                @if (User.Identity.IsAuthenticated)
                 {
-                    <a asp-area="" asp-controller="Home" asp-action="Index">SocialNetwork</a>
+                    <a asp-area="" asp-controller="Users" asp-action="MyPage">SocialNetwork</a>
                 }
                 else
 
                 {
-                    <a asp-area="" asp-controller="Users" asp-action="MyPage">SocialNetwork</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">SocialNetwork</a>
                 }
                 <partial name="_LoginPartial.cshtml" />
                 <partial name="_SearchLayoutPartial" />

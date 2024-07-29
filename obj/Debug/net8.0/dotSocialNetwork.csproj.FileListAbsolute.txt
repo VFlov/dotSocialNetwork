@@ -75,7 +75,6 @@ C:\Users\VSP\Documents\GitHub\dotSocialNetwork\bin\Debug\net8.0\System.Reflectio
 C:\Users\VSP\Documents\GitHub\dotSocialNetwork\bin\Debug\net8.0\System.Runtime.Caching.dll
 C:\Users\VSP\Documents\GitHub\dotSocialNetwork\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\VSP\Documents\GitHub\dotSocialNetwork\bin\Debug\net8.0\System.Security.Permissions.dll
-C:\Users\VSP\Documents\GitHub\dotSocialNetwork\bin\Debug\net8.0\System.Text.Json.dll
 C:\Users\VSP\Documents\GitHub\dotSocialNetwork\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\Users\VSP\Documents\GitHub\dotSocialNetwork\bin\Debug\net8.0\af\Humanizer.resources.dll
 C:\Users\VSP\Documents\GitHub\dotSocialNetwork\bin\Debug\net8.0\ar\Humanizer.resources.dll
@@ -251,4 +250,5 @@ C:\Users\VSP\Documents\GitHub\dotSocialNetwork\obj\Debug\net8.0\refint\dotSocial
 C:\Users\VSP\Documents\GitHub\dotSocialNetwork\obj\Debug\net8.0\dotSocialNetwork.pdb
 C:\Users\VSP\Documents\GitHub\dotSocialNetwork\obj\Debug\net8.0\dotSocialNetwork.genruntimeconfig.cache
 C:\Users\VSP\Documents\GitHub\dotSocialNetwork\obj\Debug\net8.0\ref\dotSocialNetwork.dll
-C:\Users\VSP\Documents\GitHub\dotSocialNetwork\bin\Debug\net8.0\GigaChatSDK.dll
+C:\Users\VSP\Documents\GitHub\dotSocialNetwork\obj\Debug\net8.0\dotSocialNetwork.sourcelink.json
+C:\Users\VSP\Documents\GitHub\dotSocialNetwork\bin\Debug\net8.0\GigaChatAdapter.dll

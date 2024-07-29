@@ -32,8 +32,10 @@ namespace dotSocialNetwork.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Sender = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Recipient = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    SenderId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SenderName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RecipientId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RecipientName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

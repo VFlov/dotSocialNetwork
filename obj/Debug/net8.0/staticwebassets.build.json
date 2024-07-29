@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ouggNMVnbMDbL0y0gQ+fWpycIpDJARYAsyB7XimW6Fw=",
+  "Hash": "a5CPdSa88K/ORPinXDZY9OdONWDr4gQtMEEi9sW6PgY=",
   "Source": "dotSocialNetwork",
   "BasePath": "_content/dotSocialNetwork",
   "Mode": "Default",
@@ -74,6 +74,25 @@
       "OriginalItemSpec": "wwwroot\\css\\base-styles.css"
     },
     {
+      "Identity": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\wwwroot\\css\\chat-styles.css",
+      "SourceId": "dotSocialNetwork",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\wwwroot\\",
+      "BasePath": "_content/dotSocialNetwork",
+      "RelativePath": "css/chat-styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\chat-styles.css"
+    },
+    {
       "Identity": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\wwwroot\\css\\main-page.css",
       "SourceId": "dotSocialNetwork",
       "SourceType": "Discovered",
@@ -129,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\wwwroot\\favicon23.ico",
+      "SourceId": "dotSocialNetwork",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\wwwroot\\",
+      "BasePath": "_content/dotSocialNetwork",
+      "RelativePath": "favicon23.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon23.ico"
     },
     {
       "Identity": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\wwwroot\\js\\site.js",

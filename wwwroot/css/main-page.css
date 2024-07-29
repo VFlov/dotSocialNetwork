@@ -1,20 +1,20 @@
-﻿﻿.main {
-    -ms-flex: 40%; 
+﻿.main {
+    -ms-flex: 40%; /* IE10 */
     flex: 40%;
     padding: 20px;
 }
 
 
 .side {
-    -ms-flex: 60%; 
+    -ms-flex: 60%; /* IE10 */
     flex: 60%;
     padding: 20px;
 }
 
 .row {
-    display: -ms-flexbox; 
+    display: -ms-flexbox; /* IE10 */
     display: flex;
-    -ms-flex-wrap: wrap; 
+    -ms-flex-wrap: wrap; /* IE10 */
     flex-wrap: wrap;
 }
 

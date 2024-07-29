@@ -196,17 +196,12 @@ namespace dotSocialNetwork.Controllers
             }
             return RedirectToAction("MyPage");
         }
-        [HttpPost]
-        public async Task<IActionResult> Chat(string id)
-        {
-            var model = GenerateChat(int.Parse(id));
-            return View(model);
-        }
-        private ChatViewModel GenerateChat(int id)
+
+        private ChatViewModel GenerateChat(string idd)
         {
             var localUser = FindLocalUser();
+            var id = int.Parse(idd);
             var interlocutor = _context.User.FirstOrDefault(i => i.Id == id);
-            Console.WriteLine("GG");
             var repository = _unitOfWork.GetRepository<Message>() as MessageRepository;
             var messages = repository.GetMessages(localUser, interlocutor);
             return new ChatViewModel()
@@ -216,13 +211,26 @@ namespace dotSocialNetwork.Controllers
                 History = messages.OrderBy(x => x.Id).ToList()
             };
         }
-        [HttpGet]
-        public async Task<IActionResult> Chat()
+        public async Task<IActionResult> Chat(string id)
         {
-            var id = Request.Query["id"];
             var model = GenerateChat(id);
             return View(model);
         }
+        public Message AddAnswer(User user, User friend, ChatViewModel model)
+        {
+            var repository = _unitOfWork.GetRepository<Message>() as MessageRepository;
+            var answer = repository.Answer(model.NewMessage.Text);
+            return new Message()
+            {
+                SenderId = friend.Id.ToString(),
+                RecipientId = user.Id.ToString(),
+                SenderName = friend.FirstName,
+                RecipientName = user.FirstName,
+                Text = answer
+            };
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> NewMessage(string id, ChatViewModel chat)
         {
@@ -233,10 +241,13 @@ namespace dotSocialNetwork.Controllers
             {
                 SenderId = localUser.Id.ToString(),
                 RecipientId = interlocutor.Id.ToString(),
+                SenderName = localUser.FirstName,
+                RecipientName = interlocutor.FirstName,
                 Text = chat.NewMessage.Text
             };
             repository.Create(item);
             var model = GenerateChat(id);
+            repository.Create(AddAnswer(localUser, interlocutor, chat));
             return View("Chat", model);
         }
 

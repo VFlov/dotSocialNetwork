@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "9A/W6HREGBI=",
+  "dgSpecHash": "So1bf0D3M2I=",
   "success": true,
   "projectFilePath": "C:\\Users\\VSP\\Documents\\GitHub\\dotSocialNetwork\\dotSocialNetwork.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\VSP\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\VSP\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
-    "C:\\Users\\VSP\\.nuget\\packages\\gigachatsdk\\1.0.5\\gigachatsdk.1.0.5.nupkg.sha512",
+    "C:\\Users\\VSP\\.nuget\\packages\\gigachatadapter\\1.0.7\\gigachatadapter.1.0.7.nupkg.sha512",
     "C:\\Users\\VSP\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\VSP\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\VSP\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -144,7 +144,6 @@
     "C:\\Users\\VSP\\.nuget\\packages\\system.io.pipelines\\7.0.0\\system.io.pipelines.7.0.0.nupkg.sha512",
     "C:\\Users\\VSP\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\VSP\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
-    "C:\\Users\\VSP\\.nuget\\packages\\system.net.http.json\\8.0.0\\system.net.http.json.8.0.0.nupkg.sha512",
     "C:\\Users\\VSP\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\VSP\\.nuget\\packages\\system.reflection.metadata\\7.0.0\\system.reflection.metadata.7.0.0.nupkg.sha512",
     "C:\\Users\\VSP\\.nuget\\packages\\system.reflection.metadataloadcontext\\7.0.0\\system.reflection.metadataloadcontext.7.0.0.nupkg.sha512",

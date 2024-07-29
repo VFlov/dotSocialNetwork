@@ -1,5 +1,4 @@
-﻿﻿
-@model dotSocialNetwork.Models.ViewModels.EditUserViewModel
+﻿@model dotSocialNetwork.Models.ViewModels.EditUserViewModel;
 
 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
@@ -7,9 +6,8 @@
 
 <div class="block-reg background-white">
     <h3 class="center">Редактирование пользователя</h3>
-    <form class="frm" method="post" asp-controller="Users" asp-action="Update">
+    <form class="frm" method="post" asp-controller="AccountManager" asp-action="Update">
         <div asp-validation-summary="ModelOnly"></div>
-        
         <div>
             <div class="mrgn">
                 <input asp-for="FirstName" class="form-control" />
@@ -28,22 +26,22 @@
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
         </div>
-
-        <div class="mrgn">
-            <input asp-for="BirthDate" class="form-control date_control" />
-            <span asp-validation-for="BirthDate" class="text-danger"></span>
-
-        </div>
         <div>
             <div class="mrgn">
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
         </div>
+
+        <div class="mrgn">
+            <input asp-for="Password" class="form-control date_control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+        </div>
         <div>
             <div class="mrgn">
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
             </div>
         </div>
         <div>

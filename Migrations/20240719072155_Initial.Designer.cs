@@ -12,8 +12,8 @@ using dotSocialNetwork.Data;
 namespace dotSocialNetwork.Migrations
 {
     [DbContext(typeof(dotSocialNetworkContext))]
-    [Migration("20240716071111_Initial2")]
-    partial class Initial2
+    [Migration("20240719072155_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,11 +52,19 @@ namespace dotSocialNetwork.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Recipient")
+                    b.Property<string>("RecipientId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Sender")
+                    b.Property<string>("RecipientName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
