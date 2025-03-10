@@ -4,7 +4,7 @@ using dotSocialNetwork.Server.Services;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace dotSocialNetwork.Server.Hub
+namespace dotSocialNetwork.Server.Hubs
 {
     [Authorize] // Добавляем авторизацию для SignalR
     public class ChatHub : Hub

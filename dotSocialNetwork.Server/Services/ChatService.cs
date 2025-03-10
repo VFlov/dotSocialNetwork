@@ -6,7 +6,7 @@ using System.Net.WebSockets;
 using System.Text.Json;
 using System.Text;
 using Microsoft.AspNetCore.SignalR;
-using dotSocialNetwork.Server.Hub;
+using dotSocialNetwork.Server.Hubs;
 public class ChatService : IChatService
 {
     private readonly AppDbContext _context;

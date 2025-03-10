@@ -4,7 +4,7 @@ using System.Collections.Concurrent;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace dotSocialNetwork.Server.Hub
+namespace dotSocialNetwork.Server.Hubs
 {
 
     public class CallHub : Hub
