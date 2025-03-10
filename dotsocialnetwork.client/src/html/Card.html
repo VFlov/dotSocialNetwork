@@ -1,0 +1,96 @@
+<div>
+    <div class="container">
+  
+      <div class="box"><b>
+          <!--         <p>This is first border gradient card with glowing colors.</p> -->
+        </b></div>
+  
+      <div class="box"><b>
+          <!--         <p>This is Second border gradient card with glowing text inside.</p> -->
+        </b></div>
+      <div class="box"><b>
+          <!--         <p>This is Second border gradient card with glowing colors.</p> -->
+        </b></div>
+    </div>
+  </div>
+
+<style>
+   * {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: boder-box;
+  font-family: "Poppins", serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #1d031f;
+}
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 50px;
+  gap: 50px;
+}
+
+.container .box {
+  position: relative;
+  height: 400px;
+  width: 280px;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.container .box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: #f00;
+}
+.container .box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: #f00;
+  filter: blur(16px);
+}
+.container .box b {
+  padding: 30px;
+  position: absolute;
+  display: block;
+  inset: 4px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 2;
+}
+
+.container .box b p {
+  font-weight: 200;
+  color: #fff;
+  text-shadow: 0 0 15px #fff;
+}
+
+.container .box:nth-child(1)::before,
+.container .box:nth-child(1)::after {
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+}
+
+.container .box:nth-child(2)::before,
+.container .box:nth-child(2)::after {
+  background: linear-gradient(45deg, #03a9f4, #ff0058);
+}
+
+.container .box:nth-child(3)::before,
+.container .box:nth-child(3)::after {
+  background: linear-gradient(45deg, #4dff03, #00d0ff);
+}
+
+</style>
