@@ -3,7 +3,7 @@ name: Build, Push, and Deploy
 on:
   push:
     branches:
-      - main  # Указываем ветку, при пуше в которую будет запускаться workflow
+      - master  # Указываем ветку, при пуше в которую будет запускаться workflow
 
 jobs:
   build-and-deploy:
