@@ -1,0 +1,34 @@
+name: Build, Push, and Deploy
+
+on:
+  push:
+    branches:
+      - main  # Указываем ветку, при пуше в которую будет запускаться workflow
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest  # Используем последнюю версию Ubuntu
+
+    steps:
+      # Шаг 1: Получение кода из репозитория
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Шаг 2: Логин в Docker Hub
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      # Шаг 3: Сборка и загрузка образа для бекенда
+      - name: Build and push dotSocialNetwork.Server
+        run: |
+          docker build -t sweetie059/dotsocialnetworkserver:latest -f dotSocialNetwork.Server/Dockerfile .
+          docker push sweetie059/dotsocialnetworkserver:latest
+
+      # Шаг 6: Развертывание на сервере
+      - name: Deploy to server
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            cd /home/dotSocialNetwork &&
+            docker-compose pull &&
+            docker-compose up -d
+          "
