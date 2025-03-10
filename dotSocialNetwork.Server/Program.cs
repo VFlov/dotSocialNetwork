@@ -74,5 +74,5 @@ if (app.Environment.IsDevelopment())
 
 app.MapControllers();
 app.MapFallbackToFile("/index.html");
-
+ 
 app.Run();
