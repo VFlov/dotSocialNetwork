@@ -19,7 +19,7 @@ FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "dotSocialNetwork.Server.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# Final stage for production
+# Final stage for production 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
