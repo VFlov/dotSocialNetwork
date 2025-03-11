@@ -3,11 +3,11 @@ name: Build, Push, and Deploy
 on:
   push:
     branches:
-      - master  # Указываем ветку, при пуше в которую будет запускаться workflow
+      - master
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest  # Используем последнюю версию Ubuntu
+    runs-on: ubuntu-latest
 
     steps:
       # Шаг 1: Получение кода из репозитория
@@ -19,16 +19,29 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       # Шаг 3: Сборка и загрузка образа для бекенда
-      - name: Build and push dotSocialNetwork.Server
+      - name: Build and push backend
         run: |
           docker build -t sweetie059/dotsocialnetworkserver:latest -f dotSocialNetwork.Server/Dockerfile .
           docker push sweetie059/dotsocialnetworkserver:latest
 
-      # Шаг 6: Развертывание на сервере
+      # Шаг 6: Добавление SSH-ключа
+      - name: Add SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      # Шаг 7: Проверка содержимого файла id_rsa
+      - name: Debug SSH key
+        run: |
+          cat ~/.ssh/id_rsa
+
+      # Шаг 8: Развертывание на сервере
       - name: Deploy to server
         run: |
-            ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-              cd /path/to/your/project &&
-              docker-compose pull &&
-              docker-compose up -d
-            "
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            cd /path/to/your/project &&
+            docker-compose pull &&
+            docker-compose up -d
+          "
