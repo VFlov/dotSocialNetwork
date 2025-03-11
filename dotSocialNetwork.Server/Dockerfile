@@ -8,16 +8,16 @@ EXPOSE 5020
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["dotSocialNetwork.Server/dotSocialNetwork.Server.csproj", "dotSocialNetwork.Server/"]
-RUN dotnet restore "./dotSocialNetwork.Server/dotSocialNetwork.Server.csproj"
-COPY ["dotSocialNetwork.Server/", "dotSocialNetwork.Server/"]
-WORKDIR "/src/dotSocialNetwork.Server"
-RUN dotnet build "./dotSocialNetwork.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
+COPY ["dotSocialNetwork.Server.csproj", "./"]
+RUN dotnet restore "./dotSocialNetwork.Server.csproj"
+COPY . .
+WORKDIR "/src"
+RUN dotnet build "dotSocialNetwork.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Publish stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./dotSocialNetwork.Server.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "dotSocialNetwork.Server.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # Final stage for production
 FROM base AS final
