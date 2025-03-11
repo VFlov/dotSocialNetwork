@@ -24,23 +24,10 @@ jobs:
           docker build -t sweetie059/dotsocialnetworkserver:latest -f dotSocialNetwork.Server/Dockerfile .
           docker push sweetie059/dotsocialnetworkserver:latest
 
-      # Шаг 6: Добавление SSH-ключа
-      - name: Add SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-
-      # Шаг 7: Проверка содержимого файла id_rsa
-      - name: Debug SSH key
-        run: |
-          cat ~/.ssh/id_rsa
-
-      # Шаг 8: Развертывание на сервере
+      # Шаг 4: Deploy to server using Password
       - name: Deploy to server
         run: |
-          ssh -i /root/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
             cd /home/dotSocialNetwork &&
             docker-compose pull &&
             docker-compose up -d
