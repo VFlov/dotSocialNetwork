@@ -28,16 +28,17 @@ jobs:
       - name: Install sshpass
         run: sudo apt-get update && sudo apt-get install sshpass
 
-      # Шаг 5: Deploy to server using Password (without docker-compose)
-      - name: Deploy to server
+      # Шаг 5: Stop and Remove Container
+      - name: Stop and Remove Container
         run: |
           sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-            # Stop and remove existing container (if it exists)
-            docker stop dotsocialnetworkserver || true && docker rm dotsocialnetworkserver || true
+            docker stop dotsocialnetworkserver || true
+            docker rm dotsocialnetworkserver || true
+          "
 
-            # Run the new container
-            docker run -d --name dotsocialnetworkserver \
-              -p 80:80 \ # Replace with your port mapping
-              # -e ENV_VAR=value # Add environment variables if needed
-              sweetie059/dotsocialnetworkserver:latest
+      # Шаг 6: Run Container
+      - name: Run Container
+        run: |
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            docker run -d --name dotsocialnetworkserver -p 80:80 sweetie059/dotsocialnetworkserver:latest
           "
