@@ -29,15 +29,15 @@ jobs:
       - name: Build and push Server container
         working-directory: ./dotSocialNetwork.Server
         run: |
-          docker build . -t yourusername/dotsocialnetwork-server:latest
-          docker push yourusername/dotsocialnetwork-server:latest
+          docker build . -t sweetie059/dotsocialnetwork-server:latest
+          docker push sweetie059/dotsocialnetwork-server:latest
 
       # Build and push Client container
       - name: Build and push Client container
         working-directory: ./dotsocialnetwork.client
         run: |
-          docker build . -t yourusername/dotsocialnetwork-client:latest
-          docker push yourusername/dotsocialnetwork-client:latest
+          docker build . -t sweetie059/dotsocialnetwork-client:latest
+          docker push sweetie059/dotsocialnetwork-client:latest
 
       # Deploy to server via SSH with password
       - name: Deploy to Server
@@ -48,13 +48,13 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             # Pull and restart Server container
-            docker pull yourusername/dotsocialnetwork-server:latest
+            docker pull sweetie059/dotsocialnetwork-server:latest
             docker stop dotsocialnetwork-server || true
             docker rm dotsocialnetwork-server || true
-            docker run -d --name dotsocialnetwork-server -p 5020:5020 yourusername/dotsocialnetwork-server:latest
+            docker run -d --name dotsocialnetwork-server -p 5020:5020 sweetie059/dotsocialnetwork-server:latest
 
             # Pull and restart Client container
-            docker pull yourusername/dotsocialnetwork-client:latest
+            docker pull sweetie059/dotsocialnetwork-client:latest
             docker stop dotsocialnetwork-client || true
             docker rm dotsocialnetwork-client || true
-            docker run -d --name dotsocialnetwork-client -p 80:80 yourusername/dotsocialnetwork-client:latest
+            docker run -d --name dotsocialnetwork-client -p 80:80 sweetie059/dotsocialnetwork-client:latest
