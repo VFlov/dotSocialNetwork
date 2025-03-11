@@ -26,7 +26,7 @@ jobs:
 
       # Шаг 6: Развертывание на сервере
       - name: Deploy to server
-          run: |
+        run: |
             ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
               cd /path/to/your/project &&
               docker-compose pull &&
