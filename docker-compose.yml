@@ -1,0 +1,6 @@
+services:
+  dotsocialnetwork.server:
+    image: ${DOCKER_REGISTRY-}dotsocialnetworkserver
+    build:
+      context: .
+      dockerfile: dotSocialNetwork.Server/Dockerfile
