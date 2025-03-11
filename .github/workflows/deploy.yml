@@ -40,5 +40,5 @@ jobs:
       - name: Run Container
         run: |
           sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-            docker run -d --name dotsocialnetworkserver -p 80:80 sweetie059/dotsocialnetworkserver:latest
+            docker run -d --name dotsocialnetworkserver -p 80:65311 -p 5020:5020 sweetie059/dotsocialnetworkserver:latest
           "
