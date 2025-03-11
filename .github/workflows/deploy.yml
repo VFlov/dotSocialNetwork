@@ -28,32 +28,16 @@ jobs:
       - name: Install sshpass
         run: sudo apt-get update && sudo apt-get install sshpass
 
-      # Шаг 5: Check if docker-compose.yml exists
-      - name: Check if docker-compose.yml exists
-        run: |
-          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-            ls -l /home/dotSocialNetwork/docker-compose.yml
-          "
-
-      # Шаг 6: Print current directory
-      - name: Print current directory
-        run: |
-          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-            cd /home/dotSocialNetwork && pwd
-          "
-
-      # Шаг 7: Print docker-compose.yml content
-      - name: Print docker-compose.yml content
-        run: |
-          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-            cat /home/dotSocialNetwork/docker-compose.yml
-          "
-
-      # Шаг 8: Deploy to server using Password
+      # Шаг 5: Deploy to server using Password (without docker-compose)
       - name: Deploy to server
         run: |
           sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-            cd /home/dotSocialNetwork &&
-            docker-compose pull &&
-            docker-compose up -d
+            # Stop and remove existing container (if it exists)
+            docker stop dotsocialnetworkserver || true && docker rm dotsocialnetworkserver || true
+
+            # Run the new container
+            docker run -d --name dotsocialnetworkserver \
+              -p 80:80 \ # Replace with your port mapping
+              # -e ENV_VAR=value # Add environment variables if needed
+              sweetie059/dotsocialnetworkserver:latest
           "
