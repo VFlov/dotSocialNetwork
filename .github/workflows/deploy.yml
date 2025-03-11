@@ -40,7 +40,7 @@ jobs:
       # Шаг 8: Развертывание на сервере
       - name: Deploy to server
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+          ssh -i /root/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
             cd /home/dotSocialNetwork &&
             docker-compose pull &&
             docker-compose up -d
