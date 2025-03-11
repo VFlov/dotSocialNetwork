@@ -41,7 +41,7 @@ jobs:
       - name: Deploy to server
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-            cd /path/to/your/project &&
+            cd /home/dotSocialNetwork &&
             docker-compose pull &&
             docker-compose up -d
           "
